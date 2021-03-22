@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4 offset-4">
+        <h3 class="text-center">
+          Add Category info
+      </h3>
+     
+      <br>
+      <form method ="POST" action="{{url_for('new_category')}}">
+          <div class="form-group">
+            {{ form.wellborecoreid.label(class="form-control-label") }}
+            {{ form.wellborecoreid(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.coretypeid.label(class="form-control-label") }}
+            {{ form.coretypeid(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.storeidentifier.label(class="form-control-label") }}
+            {{ form.storeidentifier(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.catalogcorefromdepth.label(class="form-control-label") }}
+            {{ form.catalogcorefromdepth(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.catalogcoretodepth.label(class="form-control-label") }}
+            {{ form.catalogcoretodepth(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.corecatalogsecurityflagid.label(class="form-control-label") }}
+            {{ form.corecatalogsecurityflagid(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.catalogcorelength.label(class="form-control-label") }}
+            {{ form.catalogcorelength(class="form-control") }}
+          </div>
+          
+          <div >
+            {{ form.submit(class='btn btn-primary btn-md')}}
+            <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    
+</div>
+{% endblock %}
+

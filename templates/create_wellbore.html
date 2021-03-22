@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4 offset-4">
+        <h3 class="text-center">
+          Add WellBore info
+      </h3>
+      
+      <br>
+      <form method ="POST" action="{{url_for('new_wellbore')}}">
+          <div class="form-group">
+            {{ form.wellboreofficialname.label(class="form-control-label") }}
+            {{ form.wellboreofficialname(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.wellborelocalname.label(class="form-control-label") }}
+            {{ form.wellborelocalname(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.wellborealiasname.label(class="form-control-label") }}
+            {{ form.wellborealiasname(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.wellborespuddate.label(class="form-control-label") }}
+            {{ form.wellborespuddate(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.spudyear.label(class="form-control-label") }}
+            {{ form.spudyear(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.wellboretypeid.label(class="form-control-label") }}
+            {{ form.wellboretypeid(class="form-control") }}
+           
+          </div>
+          <div class="form-group">
+            {{ form.initialwellborepurposeid.label(class="form-control-label") }}
+            {{ form.initialwellborepurposeid(class="form-control") }}
+          </div>
+      
+          <div >
+            {{ form.submit(class='btn btn-primary btn-md')}}
+            <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+          </div>
+        </form>
+        
+      </div>
+    </div>
+    
+</div>
+{% endblock %}
+

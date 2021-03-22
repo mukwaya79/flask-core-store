@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Category Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+        background-image:url({{url_for('static',filename='images/Petrol.jpg')}});
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%;
+    }
+    </style>
+    
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+       {% if messages%}
+         {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+         {% endfor %}
+       {% endif %}
+    {% endwith %}
+    <div class="container mt-3">
+        <h3 class="text-center">
+            Welcome to category Data
+        </h3>
+        <hr>
+        <a href="{{url_for('navigation')}}" class='btn btn-secondary '>Back</a>
+        <a href="{{url_for('new_category')}}" class='btn btn-primary float-right'>Add Data</a>
+        <br><br>
+        <div class="card">
+    <table class='table table-striped'>
+        <tr>
+            <th>ID</th>
+            <th>wellbocoreid</th>
+            <th>coretypeid</th>
+            <th>storeidentifier</th>
+            <th>ccfromdepth</th>
+            <th>cctodepth</th>
+            <th>corecatalogsecurityflagid</th>
+            
+            <th>catalogcorelength</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for info in infos %}
+           <tr>
+               <td>{{info.corecatalogid}}</td>
+               <td>{{info.wellborecoreid}}</td>
+               <td>{{info.coretypeid}}</td>
+               <td>{{info.storeidentifier}}</td>
+               <td>{{info.catalogcorefromdepth}}</td>
+               <td>{{info.catalogcoretodepth}}</td>
+               <td>{{info.corecatalogsecurityflagid}}</td>
+               <td>{{info.catalogcorelength}}</td>
+    
+               {% if current_user.role == 'admin' %}
+               <td><a href="/category/{{info.corecatalogid}}/update" class='btn btn-success'>Edit</a></td>
+               <td><a href="/category/delete/{{info.corecatalogid}}" class='btn btn-danger' onclick= "return confirm('Do you really want to delete ?');"  >Delete</a></td>
+               {% endif %}
+    
+           </tr>
+        {% endfor %}
+        
+    </table>
+     </div>
+    </div>
+    <br><br>
+    
+       <div class="card bg-secondary">
+        <footer class="footer text-center ">
+      <div class="container">
+        <span class="text-strong">Copyright &copy 2021 Petroleum Authority of Uganda</span>
+      </div>
+    </footer>
+       </div>
+   
+    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+

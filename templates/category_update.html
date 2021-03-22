@@ -1,0 +1,59 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+        <div class="container mt-1">
+            <div class="mb-3">
+            <h3 class="text-center">Update Category Data</h3>
+             <br>
+           </div>
+           <div class="row">
+            <div class="col-md-4 offset-4">
+            <form method ="POST" action="/category/{{category1.corecatalogid}}/update">
+                <div class="form-group">
+                    <label for="wellborecoreid">wellborecoreid</label>
+                    <input type="number" name='wellborecoreid' class="form-control"  value='{{category1.wellborecoreid}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="coretypeid">coretypeid</label>
+                    <input type="number" name='coretypeid' class="form-control"  value='{{category1.coretypeid}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="storeidentifier">storeidentifier</label>
+                    <input type="text" name='storeidentifier' class="form-control"  value='{{category1.storeidentifier}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="catalogcorefromdepth">catalogcorefromdepth</label>
+                    <input type="number" name='catalogcorefromdepth' class="form-control"  value='{{category1.catalogcorefromdepth}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="catalogcoretodepth">catalogcoretodepth</label>
+                    <input type="number" name='catalogcoretodepth' class="form-control"  value='{{category1.catalogcoretodepth}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="corecatalogsecurityflagid">corecatalogsecurityflagid</label>
+                    <input type="number" step="any" name='corecatalogsecurityflagid' class="form-control"  value='{{category1.corecatalogsecurityflagid}}' required>
+                 
+                </div>
+                <div class="form-group">
+                    <label for="catalogcorelength">catalogcorelength</label>
+                    <input type="number" step="any" name ='catalogcorelength' class="form-control"  value='{{category1.catalogcorelength}}' required>
+                </div>
+               
+                <div class=" mt-3">
+                    <button type="submit" class="btn btn-primary mb-2">submit</button>
+                    <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+                </div>
+              </form>
+              
+        </div>
+    </div>
+</div>
+</div>
+
+{% endblock %}

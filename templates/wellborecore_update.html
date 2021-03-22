@@ -1,0 +1,78 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container mt-3">
+    <div class="row">
+      <div class="col-md-4 offset-4">
+        <h3 class="text-center">
+          Update Wellborecore Data 
+      </h3>
+      <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+      <br>
+      <form method ="POST" action="/wellborecore/{{corebase1.wellborecoreid}}/update">
+          <div class="form-group">
+              <label for="wellboreid">wellboreid</label>
+              <input type="number" name='wellboreid' class="form-control"  value='{{corebase1.wellboreid}}' required>
+           
+          </div>
+          <div class="form-group">
+              <label for="corenumber">corenumber</label>
+              <input type="number" name='corenumber' class="form-control"  value='{{corebase1.corenumber}}' required>
+           
+          </div>
+          <div class="form-group">
+              <label for="coringdate">coringdate</label>
+              <input type="date" name='coringdate' class="form-control"  value='{{corebase1.coringdate}}' required>
+           
+          </div>
+         <div class="form-group">
+              <label for="wbcoringcontractorid">wbcoringcontractorid</label>
+              <input type="number" step="any" name='wbcoringcontractorid' class="form-control"  value='{{corebase1.wbcoringcontractorid}}' required>
+           
+          </div>
+          <div class="form-group">
+              <label for="coretopmdrt">coretopmdrt</label>
+              <input type="number" step="any" name='coretopmdrt' class="form-control"  value='{{corebase1.coretopmdrt}}' required>
+           
+          </div>
+          <div class="form-group">
+              <label for="corebtmmdrt">corebtmmdrt</label>
+              <input type="number" step="any" name='corebtmmdrt' class="form-control"  value='{{corebase1.corebtmmdrt}}' required>
+           
+          </div>
+          <div class="form-group">
+              <label for="coretoptvd">coretoptvd</label>
+              <input type="number" step="any" name ='coretoptvd' class="form-control"  value='{{corebase1.coretoptvd}}' required>
+          </div>
+          <div class="form-group">
+              <label for="corebtmtvd">corebtmtvd</label>
+              <input type="number" step="any" name='corebtmtvd' class="form-control"  value='{{corebase1.corebtmtvd}}' required>
+            </div>
+            <div class="form-group">
+              <label for="cutlength">cutlength</label>
+              <input type="number" step="any" class="form-control" name='cutlength' value='{{corebase1.cutlength}}' required>
+            </div>
+            <div class="form-group">
+              <label for="cutlengthtvd">cutlengthtvd</label>
+              <input type="number" step="any" name='cutlengthtvd' class="form-control"  value='{{corebase1.cutlengthtvd}}' required>
+            </div>
+            <div class="form-group">
+              <label for="recoveredlength">recoveredlength</label>
+              <input type="number" step="any" class="form-control" name='recoveredlength' value='{{corebase1.recoveredlength}}' required>
+            </div>
+            <div class="form-group">
+              <label for="corerecovery">corerecovery</label>
+              <input type="number" step="any" class="form-control" name='corerecovery' value='{{corebase1.corerecovery}}' required>
+            </div>
+              <button type="submit" class="btn btn-primary mb-2">submit</button>
+              <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+          </div>
+        </form>
+      </div>
+    </div>
+    
+      
+       </div>
+      
+</div>
+{% endblock %}

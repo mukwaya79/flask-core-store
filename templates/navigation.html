@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block title   %}
+    <title>navigation</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+         body{
+            background-image: url({{url_for('static',filename='images/oil.jpg')}});
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            opacity:1;
+            
+        }
+    </style>
+    {% endblock %}
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+       {% if messages%}
+         {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+         {% endfor %}
+       {% endif %}
+    {% endwith %}
+    <div class="container mt-3">
+        <div class="row">
+            <div class="col-md-6 offset-3">
+                <div class="card card-title">
+                   <h3 class="text-center">Available Data </h3>
+                </div>
+                <div class="card">
+                    <div class="card-body text-center">
+                       <h5> <a href="{{ url_for('wells') }}">Wells</a></h5>
+                    </div>
+                    <hr>
+                    <div class="card-body text-center">
+                        <h5><a href="{{ url_for('wellbore') }}">Wellbore</a></h5>
+                    </div>
+                    <hr>
+                    <div class="card-body text-center">
+                      <h5> <a href="{{ url_for('wellborecore') }}">Wellbore Core</a></h5> 
+                    </div>
+                    <hr>
+                    <div class="card-body text-center">
+                       <h5> <a href="{{ url_for('category') }}">Category</a></h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <br><br>
+    <div class="card bg-secondary">
+    <footer class="footer text-center ">
+      <div class="container">
+        <span class="text-strong">Copyright &copy 2021 Petroleum Authority of Uganda</span>
+      </div>
+    </footer>
+     </div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+</html>
+

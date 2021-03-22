@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wellbore Core</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body{
+           background-image: url({{url_for('static',filename='images/oil7.jpg')}});
+           background-repeat: no-repeat;
+           background-attachment: fixed;
+           background-size: 100% 100%;
+           opacity:79;
+           
+       }
+   </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+       {% if messages%}
+         {% for category, message in messages %}
+            <div class="alert alert-{{ category }}">
+                {{ message }}
+            </div>
+         {% endfor %}
+       {% endif %}
+    {% endwith %}
+    <div class="container mt-3">
+    <h3 class="text-center">
+        Welcome to Wellbore Core Data
+    </h3>
+    <hr>
+    <a href="{{url_for('navigation')}}" class='btn btn-secondary '>Back</a>
+    <a href="{{url_for('new_wellborecore')}}" class='btn btn-primary float-right'>Add Data</a>
+    <br><br>
+    <div class="card">
+       <div class="card-body">
+         <div class="card-content">
+            <table class='table table-striped'>
+        <tr>
+            <th>wellborecoreId</th>
+            <th>wellboreid</th>
+            <th>corenumber</th>
+            <th>coringdate</th>
+            <th>wbcoringcontractorid</th>
+            <th>coretopMDRT</th>
+           
+            <th>Record date</th>
+            <th></th>
+            <th></th>
+        </tr>
+         {% for info in infos %}
+           <tr>
+               <td>{{info.wellborecoreid}}</td>
+               <td>{{info.wellboreid}}</td>
+               <td>{{info.corenumber}}</td>
+               <td>{{info.coringdate}}</td>
+               <td>{{info.wbcoringcontractorid}}</td>
+               <td>{{info.coretopmdrt}}</td>
+               
+               
+               <td>{{info.recorddate.strftime('%d-%m-%Y')}}</td>
+               {% if current_user.role == 'admin' %}
+               <td><a href="/wellborecore/{{info.wellborecoreid}}/update" class='btn btn-success'>Edit</a></td>
+               <td><a href="/wellborecore/delete/{{info.wellborecoreid}}" class='btn btn-danger' onclick= "return confirm('Do you really want to delete ?');">Delete</a></td>
+               {% endif %}
+           </tr>
+         {% endfor %}
+
+    </table>
+         </div>
+       </div>
+    </div> 
+</div>
+<br><br>
+<div class="card bg-secondary">
+    <footer class="footer text-center ">
+      <div class="container">
+        <span class="text-strong">Copyright &copy 2021 Petroleum Authority of Uganda</span>
+      </div>
+    </footer>
+     </div>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> 
+</body>
+</html>

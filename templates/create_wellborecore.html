@@ -1,0 +1,81 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+<div class="container mt-3">
+   <div class="row">
+     <div class="col-md-4 offset-4">
+      <h3 class="text-center">
+        Add Wellbore Core info
+    </h3>
+
+    <br>
+    <form method ="POST" action="{{url_for('new_wellborecore')}}">
+        <div class="form-group">
+          {{ form.wellboreid.label(class="form-control-label") }}
+          {{ form.wellboreid(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.corenumber.label(class="form-control-label") }}
+          {{ form.corenumber(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.coringdate.label(class="form-control-label") }}
+          {{ form.coringdate(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.wbcoringcontractorid.label(class="form-control-label") }}
+          {{ form.wbcoringcontractorid(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.coretopmdrt.label(class="form-control-label") }}
+          {{ form.coretopmdrt(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.corebtmmdrt.label(class="form-control-label") }}
+          {{ form.corebtmmdrt(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.coretoptvd.label(class="form-control-label") }}
+          {{ form.coretoptvd(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.corebtmtvd.label(class="form-control-label") }}
+          {{ form.corebtmtvd(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.cutlength.label(class="form-control-label") }}
+          {{ form.cutlength(class="form-control") }}
+         
+        </div>
+        <div class="form-group">
+          {{ form.cutlengthtvd.label(class="form-control-label") }}
+          {{ form.cutlengthtvd(class="form-control") }}
+        </div>
+        <div class="form-group">
+            {{ form.recoveredlength.label(class="form-control-label") }}
+            {{ form.recoveredlength(class="form-control") }}
+          </div>
+          <div class="form-group">
+            {{ form.corerecovery.label(class="form-control-label") }}
+            {{ form.corerecovery(class="form-control") }}
+          </div>
+         
+        <div >
+          {{ form.submit(class='btn btn-primary btn-md')}}
+          <a href="{{url_for('navigation')}}" class='btn btn-secondary float-right '>Back</a>
+        </div>
+      </form>
+     </div>
+   </div>
+   
+</div>
+{% endblock %}
+
